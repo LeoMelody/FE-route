@@ -1,0 +1,53 @@
+/*
+    grid 布局display具有三个值  grid  inline-grid  subgrid
+*/
+
+/*
+ 只是设置 display  grid-template-columns grid-template-rows 这三个属性可以将grid container创建成为一个网格布局。
+ grid container 中的子项 grid item 会一个个按部就班地填入到这些网格中。
+ 比如下面这个container会自然创建出三列，三行（第三行根据有无元素来自动生成）
+ 由于container下面只有三个元素，所以就只是占在第一行的三列中
+*/
+.container {
+    display: grid; 
+    /* 默认值为auto，表示占满一行 定义每一列的属性*/
+    grid-template-rows: 20px 40px auto;
+    /* 定义每一行的高度 */
+    /* fr用法  fr 类似于flex的比例设置。表示把当前轴减去可计算（已经声明出的px/% 这些）的长度，剩下的平均分配 */
+    grid-template-columns: [first] 1fr [second] 2fr [third] 3fr [last];
+}
+
+/*
+更加便捷的用法   grid-areas
+grid自带了一套基础的布局，我们可以通过声明container中某一项是属于哪一块区域的即可
+*/
+
+.item {
+
+}
+
+/* eg. 2 */
+.c-area {
+    grid-template-columns: 50px 50px 50px;
+    grid-template-rows: 50px 50px 50px;
+    grid-template-areas: "header header header"
+                         "main . ."
+                         "footer footer footer";
+}
+
+.c-area .item {
+    background: rgb(124, 179, 23);
+    border: 1px solid #ddd;
+}
+
+.item-a {
+    grid-area: main;
+}
+
+.item-f {
+    grid-area: footer;
+}
+
+.item-b {
+    grid-area: header;
+}

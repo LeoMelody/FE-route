@@ -1,0 +1,44 @@
+.container {
+    display: grid;
+    grid-template-columns: 100px 100px 100px;
+    grid-template-rows: 100px 100px 100px;
+    grid-template-areas: "a b c"
+                         "d e f"
+                         "g h i"
+}
+
+.item {
+    transition: all .5s;
+    border: 1px solid #ddd;
+    background: #73e4ab;
+    cursor: pointer;
+}
+
+.item-a {
+    grid-area: a;
+}
+
+.item-b {
+    grid-area: b;
+}
+.item-c {
+    grid-area: c;
+}
+.item-d {
+    grid-area: d;
+}
+.item-e {
+    grid-area: e;
+}
+.item-f {
+    grid-area: f;
+}
+.item-g {
+    grid-area: g;
+}
+.item-h {
+    grid-area: h;
+}
+.item-i {
+    grid-area: i;
+}
