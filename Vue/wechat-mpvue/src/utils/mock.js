@@ -39,3 +39,5 @@ mock[APIS.getuserinfoMortgage] = {
     "statusCode": 200
 }
 
+
+export default mock

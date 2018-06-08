@@ -39,7 +39,7 @@ export default {
           "selectedIconPath": "/images/yundai/orderList1.png"
         },
         {
-          "pagePath": "pages/home/main",
+          "pagePath": "pages/person/main",
           "text": "我的",
           "iconPath": "/images/yundai/personal_info.png",
           "selectedIconPath": "/images/yundai/personal_info1.png"

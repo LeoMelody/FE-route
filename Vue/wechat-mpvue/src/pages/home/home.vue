@@ -8,12 +8,14 @@
                 </swiper-item>
             </block>
         </swiper>
+        
+        <button @click="goRecommend">提单吧</button>
     </div>
 </template>
 
 <script>
 import store from '../../store'
-import util from '../../utils'
+import util from '../../utils/util'
 
 export default {
     data() {
@@ -31,13 +33,38 @@ export default {
         }
     },
     onShow() {
-       this.getInfo() 
+        var that = this
+        util.getUserSession(function(){
+            that.getInfo() 
+        })
     },
     computed: {
+        userInfo() {
+            return this.$store.state.userInfo
+        }
     },
     methods: {
         getInfo() {
-            
+            if (this.userInfo && this.userInfo.userNo) {
+                return 
+            }
+            var that = this
+            util.sendRequest({
+                url: util.getApi('getuserinfoMortgage'),
+                data: {},
+                method: 'GET',
+                success(res) {
+                    if (res.data && res.data.retCode && res.data.retCode == "1") {
+                        console.log(res.data.data)
+                        that.$store.commit('setUserInfo', res.data.data)
+                    }
+                }
+            })
+        },
+        goRecommend() {
+            wx.navigateTo({
+                url: '/pages/recommend/index/main?from=index',
+            })
         }
     }
 }

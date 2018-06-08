@@ -21,5 +21,5 @@ var APIS = {
 
 export default {
     APIS,
-    DEBUG: true
+    DEBUG: false
 }
