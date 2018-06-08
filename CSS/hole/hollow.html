@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Examples</title>
+<style>
+.hole {
+  width: 160px;
+  height: 160px;
+  position: relative;
+  /*overflow: hidden;*/
+}
+.hole:after {
+  position: absolute;
+  height: 100px;
+  width: 100px;
+  left: -50px;
+  top: -50px;
+  content: '';
+  border-radius: 50%;
+  border: 80px solid #0079AB;
+}
+</style>
+</head>
+<body style="background: #333;"><!-- body 设置背景色是为了能看出镂空效果 -->
+    <div class="hole"></div>
+</body>
+</html>
