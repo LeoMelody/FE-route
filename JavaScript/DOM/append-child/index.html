@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 该html描述关于appendchild的一些操作 -->
+    <div id="app">
+        <div class="name"></div>
+        <div class="name"></div>
+        <div class="name">3</div>
+    </div>
+    <div id="test">
+        123
+    </div>
+    <script>
+        var app = document.querySelector('#app')
+        var body = document.querySelector('body')
+        var test = document.querySelector('#test')
+        app.appendChild(test)
+        body.appendChild(test)
+        // 这里可以看到，appendChild方法会删除掉原节点并放到新的位置
+
+        // 我在又阅读了一下高程后，找到这段话  appendChild用于向childNodes列表的末尾添加一个节点。但是如果传入到appendChild中的节点已经
+        // 是文档的一部分了，那么结果就是将该节点从原来的位置转移到新位置
+
+        // 原因：  我们可以将DOM树看做是由一系列的指针链接起来的，所以任何DOM节点不能同时存在文档的多个位置上
+        // 也就是说，文档中的每个节点都是独一无二的！！！
+
+        // 验证：
+        console.log(app.childNodes)
+        var name1 = app.childNodes[1]
+        var name2 = app.childNodes[3]
+        // name1 和 name2 是如此的相似，但是却完全不同
+        
+        // 通过观察每个节点的复杂的数据结构，发现可以由一个节点找到所有的DOM节点，所以如果将test放到app里面，那么其结构就会完全乱套了
+        // 为了保证其不会乱套，在执行appendChild的时候会重新生成这个节点与其它节点的关系图，并将其放置到该放置的位置
+
+        // console.log(app.firstChild)
+        // var child = app.firstChild
+        // var fragment = document.createDocumentFragment()
+        // while(child) {
+        //     fragment.appendChild(child)
+        //     child = app.firstChild
+        // }
+
+        // console.log(fragment)
+        // console.log(app)
+    </script>
+</body>
+</html>

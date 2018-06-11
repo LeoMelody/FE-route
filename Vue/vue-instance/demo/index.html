@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue-test</title>
+</head>
+<body>
+    <div id="app">
+        <h2 id="name">{{name}}</h2>
+        <h3>{{observerNum}}</h3>
+    </div>
+    <script src="dep.js"></script>    
+    <script src="watcher.js"></script>
+    <script src="vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: 'app',
+            data: {
+                observerNum: 123,
+                name: 'wyh'
+            },
+            methods: {
+                test() {
+                    console.log('test')
+                }
+            },
+            mounted() {
+                console.log(this.name)
+                this.name = 'lll'  
+                setTimeout(()=> {
+                    this.name = 'hahah'
+                }, 1000)              
+            }
+        })
+
+    </script>
+</body>
+</html>
