@@ -3,7 +3,6 @@
  */
 class Dep{
     constructor() {
-        // console.log(this)
         this.subs = []
     }
 

@@ -5,14 +5,16 @@
 
 class Vue {
     constructor(data) {
-        
-        // 对ele进行解析
+        // 将data数据封装到Vue实例的最外层属性上
         Object.assign(this, data.data)
+        // 对数据实施监听操作
         this.observer(this)
+
         this.handelMethod(data.methods)
-        this.__proto__.ele = document.querySelector('#' + (data.el || 'app'))
-        this.compileElement(this.nodeToFragment())
+        // this.__proto__.ele = document.querySelector('#' + (data.el || 'app'))
+        // this.compileElement(this.nodeToFragment())
         // this.nodeToFragment()
+        new Compile(this, '#' + data.el)
         data.mounted.call(this)
     }
 
@@ -34,8 +36,9 @@ class Vue {
      * 处理methods
      */
     handelMethod(methods) {
+        this.__proto__.methods = {}
         Object.keys(methods).forEach(item=> {
-            this.__proto__[item] = methods[item]
+            this.__proto__.methods[item] = methods[item]
         })
     }
 
@@ -46,7 +49,7 @@ class Vue {
      * @param {*} value 
      */
     defineReactive(obj, attr, value) {
-        const dep = new Dep()
+        const dep = new Dep() // 实例化一个订阅者数组对象
         Object.defineProperty(obj, attr, {
             enumerable: true,
             configurable: true,
@@ -62,76 +65,6 @@ class Vue {
                 dep.notify()
             }
         })
-    }
-
-    /**
-     * 先将node转换给Fragment再开始解析，减少开销
-     */
-    nodeToFragment() {
-        var fragment = document.createDocumentFragment()
-        var el = this.ele        
-        var child = el.firstChild
-        while(child) {
-            fragment.appendChild(child)
-            child = el.firstChild
-        }
-        return fragment
-    }
-
-    /**
-     * 解析元素
-     * @param {*} el 元素节点 
-     */
-    compileElement(el) {        
-        var childNodes = el.childNodes
-        var self = this
-        Array.from(childNodes).forEach(node => {
-            var reg = /\{\{(.*)\}\}/
-            var text = node.textContent
-    
-            if (self.isTextNode(node) && reg.test(text)) { // 有匹配的项
-                self.compileText(node, reg.exec(text)[1])
-            }
-    
-            if (node.childNodes && node.childNodes.length) {
-                self.compileElement(node)
-            }
-        })
-        this.ele.appendChild(el)
-    }
-
-    /**
-     * 解析文本中{{}}包含的数据属性
-     * @param {*} node 
-     * @param {*} exp 
-     */
-    compileText(node, exp) {
-        var self = this
-        var initText = this[exp]
-        this.updateText(node, initText)
-        new Watcher(this, exp, function(val) {
-            self.updateText(node, val)
-        })
-    }
-
-    /**
-     * 更新某个节点的文本
-     * @param {*} node 
-     * @param {*} text 
-     */
-    updateText(node, text) {
-        node.textContent = (typeof text === 'undefined') ? '' : text
-    }
-
-    /**
-     * 判断是否是文本节点
-     * @param {*} node 
-     */
-    isTextNode(node) {
-        if (node.nodeName === '#text') {
-            return true
-        }
-        return false
     }
 }
 

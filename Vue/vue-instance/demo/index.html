@@ -10,9 +10,12 @@
     <div id="app">
         <h2 id="name">{{name}}</h2>
         <h3>{{observerNum}}</h3>
+        输入:<input type="text" v-model="name">
+        <button v-on:click="test">ceshi</button>
     </div>
     <script src="dep.js"></script>    
     <script src="watcher.js"></script>
+    <script src="compile.js"></script>
     <script src="vue.js"></script>
     <script>
         var vm = new Vue({
@@ -23,14 +26,14 @@
             },
             methods: {
                 test() {
-                    console.log('test')
+                    this.name = 'wyh'
                 }
             },
             mounted() {
-                console.log(this.name)
                 this.name = 'lll'  
                 setTimeout(()=> {
                     this.name = 'hahah'
+                    this.observerNum = 789
                 }, 1000)              
             }
         })
