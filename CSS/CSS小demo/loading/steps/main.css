@@ -1,0 +1,16 @@
+.loading {
+    margin: 0 auto;
+    width: 100px;
+    height: 100px;
+    background: url(snowwhite.png) 0 0;
+    /*隐藏文字*/
+    text-indent: 200%;
+    white-space: nowrap;
+    overflow: hidden;
+    /* 动画 */
+    animation: loading 1s infinite steps(8);
+}
+
+@keyframes loading {
+    to{ background-position: -800px 0;}
+}

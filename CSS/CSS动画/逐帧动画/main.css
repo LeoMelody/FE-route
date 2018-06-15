@@ -19,4 +19,25 @@
 
 @keyframes blink-smooth { to { color: transparent } }
 
-.highlight { animation: 1s blink-smooth 3; }
+.highlight { animation: .5s blink-smooth infinite alternate-reverse; }
+
+
+.drop {
+    margin: 0 auto;
+    width: 100px;
+    height: 500px;
+    background: linear-gradient(to top, rgb(250, 255, 240), rgb(194, 248, 106))
+}
+
+.ball {
+    margin: 0 auto;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgb(180, 243, 245), rgb(25, 228, 218));
+    animation: drop 1s ease-out infinite alternate;
+}
+
+@keyframes drop {
+    to {transform: translateY(500px);}
+}
