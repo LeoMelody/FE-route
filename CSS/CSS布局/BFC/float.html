@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .outer {
+            border: 5px dotted rgb(214, 129, 137);
+            border-radius: 5px;
+            width: 450px;
+            padding: 10px;
+            margin-bottom: 40px;
+            /* 
+                overflow之所以能够有效是因为当它的值是非visible时会创建一个BFC，而BFC的一个特性就是包裹浮动元素
+             */
+        }
+
+        .float {
+            padding: 10px;
+            border: 5px solid rgba(214, 129, 137, .4);
+            border-radius: 5px;
+            background-color: rgba(233, 78, 119, .4);
+            color: #fff;
+            float: left;
+            width: 200px;
+            margin: 0 20px 0 0;
+        }
+
+        .ab {
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="outer">
+        <div class="float">I am a floated element.</div>
+       
+        <div> I am textI am text inside the outer box.
+            I am text inside the outer box.
+            I am text inside the outer box.
+            I am text inside the outer box.</div>
+        <!-- I am text inside the outer box.
+        I am text inside the outer box.
+        I am text inside the outer box.
+        I am text inside the outer box.
+        I am text inside the outer box.
+        I am text inside the outer box. -->
+        <!-- 当文本不够撑起父容器高度，就会导致父容器塌陷，这是由于float不属于正常的文档流（并非脱离文档流） -->
+    </div>
+
+    <div class="outer">
+        <div class="float ab"></div>
+    </div>
+</body>
+
+</html>

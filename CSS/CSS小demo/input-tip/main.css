@@ -1,0 +1,25 @@
+.container {
+    width: 500px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+input {
+    height: 30px;
+    line-height: 30px;
+    border-radius: 2px;
+    outline: none;
+    border: 1px solid #aaa;
+    padding: 2px 5px;
+}
+
+input:not(:focus) + .tips {
+    transform: scale(0);
+    transition-timing-function: ease;
+}
+
+.tips {
+    transition: .5s all cubic-bezier(.25,.1,.3,1.5);
+    transform-origin: 10px 10px;
+    background: rgb(238, 237, 182);
+}

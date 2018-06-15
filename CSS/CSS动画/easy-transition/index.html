@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+</head>
+<body>
+    <div class="container self">
+        自身hover触发自身动画
+    </div>
+    <button id="move">移动吧</button>
+    <div class="container btn-move">
+        由按钮控制移动
+    </div>
+    <script>
+        const move = document.querySelector('#move')
+        const moveWrap = document.querySelector('.btn-move')
+        move.addEventListener('click', function(e) {
+            toggleClassName(moveWrap, 'move-left')
+        })
+
+        function toggleClassName(node, newName) {
+            var namelist = Array.from(node.classList)
+            if (namelist.indexOf(newName) > -1) {
+                namelist.splice(namelist.indexOf(newName), 1)
+            } else {
+                namelist.push(newName)
+            }
+            var namestr = namelist.join(' ')
+            node.className = namestr
+        }
+    </script>
+</body>
+</html>

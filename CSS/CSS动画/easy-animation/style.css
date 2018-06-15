@@ -1,0 +1,42 @@
+.ball-wrap {
+    margin: 0 auto;
+    width: 100px;
+    height: 500px;
+    background: linear-gradient(to top, #fff , rgb(134, 224, 247));
+    border-bottom: 1px solid #888 cubicbezier (.63,-0.01,.91,.68);
+}
+
+.ball {
+    margin: 0 auto;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgb(240, 187, 102), #fff);
+    animation: drop 3s infinite;
+}
+
+@keyframes drop {
+    from,to {
+        transform: translateY(0)
+    }
+    from {
+    }
+    to {
+        animation-timing-function: ease;
+    }
+    50% {
+        transform: translateY(420px)
+    }
+}
+
+.callout {
+    
+}
+
+input:not(:focus) + .callout {
+    transform: scale(0);
+}
+.callout {
+    transition: .5s transform;
+    transform-origin: 1.4em -.4em;
+}

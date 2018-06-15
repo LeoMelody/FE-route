@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .container {
+            background-color: #ccc;
+            margin: 0 0 40px 0;
+            /* 
+                如果不用BFC策略，那么margin会合并，这样在p1的上方就没有20px高的ccc颜色区域 p2的下方就没有20px高的ccc区域
+             */
+        }
+
+        .container .item {
+            padding: 1px;
+            margin: 20px 0 20px 0;
+            background-color: rgb(233, 78, 119);
+            color: #fff;
+        }
+
+        .bfc {
+            overflow: auto;
+            /* 
+                使用BFC策略
+             */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <p class="item">a</p>
+        <p class="item">b</p>
+    </div>
+<!--  -->
+    <div class="container bfc">
+        <p class="item">c</p>
+        <p class="item">d</p>
+    </div>
+    
+</body>
+
+</html>

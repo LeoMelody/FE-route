@@ -1,0 +1,22 @@
+.loading {
+    width: 100px;
+    height: 100px;
+    background: url(snowwhite.png) 0 0;
+    /* 隐藏文本 */
+    text-indent: 200%;
+    white-space: nowrap;
+    overflow: hidden;
+    /* 使用steps把平滑的对象方法变成了逐帧动画，分成八个步骤来展示这个动画了 
+    把整个动画切分为多帧， 而且整个动画会在帧与帧之间硬切 */
+    animation: loader 1s infinite steps(8);
+
+}
+
+
+@keyframes loader {
+    to { background-position: -800px 0; }
+}
+
+@keyframes blink-smooth { to { color: transparent } }
+
+.highlight { animation: 1s blink-smooth 3; }
