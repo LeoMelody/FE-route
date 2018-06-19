@@ -57,4 +57,20 @@ ul {
 }
 
 
+#roll {
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 500px;
+    height: 72px;
+    border: 1px solid hsl(0,0%,70%);
+    background: hsl(0,0%,100%) url(https://s.cdpn.io/79/sprite-steps.png) no-repeat left top;
+    transition: opacity .3s linear;
+    animation:  roll-animation 1s steps(10) infinite;
+}
+
+
+
 

@@ -1,0 +1,20 @@
+h1 {
+    width: 8em;
+    animation: long 8s steps(8),
+               caret 1s steps(1) infinite;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: .05em solid;
+}
+
+@keyframes long {
+    from {
+        width: 0;
+    }
+}
+
+@keyframes caret {
+    50% {
+        border-color: transparent;
+    }
+}

@@ -1,0 +1,90 @@
+.path {
+    margin: 0 auto;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: rgb(236, 180, 24);
+    text-align: center;
+}
+
+.path .avatar,.path .avatar-wrap  {
+    margin: 0 auto;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    animation: spin 3s linear infinite;
+    /* transform-origin 用来设置旋转元素的中心点，相对于当前元素,所以必须有配合附加在该元素上的rotate动画 */
+    transform-origin: 50% 150px; 
+}
+
+.path-t {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.avatar-t {
+    margin: 0 auto;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    /* animation: spin 3s linear infinite; */
+    /* transform-origin */
+    /* transform: rotate(30deg);
+    transform-origin: 15px 150px; */
+    /* translate */
+    /* 这个rotate后，translate的X和Y轴的方向就变了！ */
+    /* transform: translate(15px, 150px) rotate(30deg) translate(-15px, -150px);
+    transform-origin: 0 0; */
+    /* 使用translate来完成动画 */
+    transform-origin: 0 0;
+    animation: 3s spinT linear infinite;
+}
+
+@keyframes spinT {
+    /* 在这个from to 中，寻找transform的不同，相当于从0~1 rotate由0变成了1，正好对应的是头像在360°路径上的各个位置 */
+    /* 为什么这样写，要理解 这是三个步骤合成一步的一个动画 */
+    /* 六步合成一个动画状态 */
+    /* from {
+        
+        transform: translate(50%,150px) rotate(0turn) translate(-50%,-150px) translate(50%, 50%) rotate(0turn) translate(-50%, -50%);
+    }
+
+    to {
+        transform: translate(50%,150px) rotate(1turn) translate(-50%,-150px) translate(50%, 50%) rotate(-1turn) translate(-50%, -50%);
+    } */
+    /* 简化版本，将头像先放到正中间，这样就省去了第一步translate(50%,150px) 这个操作 */
+    from {
+        transform: rotate(0turn)
+        /* 如果有预处理器，那么这一步也可以结合成一步来搞 */
+        translateY(-150px) translateY(50%)
+        rotate(1turn);
+    }
+    to {
+        transform: rotate(1turn)
+        translateY(-150px) translateY(50%)
+        rotate(0turn);
+    }
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(1turn)
+    }
+}
+
+
+
+.avatar-wrap img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    /* 让头像反转，即可达到头像不动（头部始终朝上）的效果了 */
+    animation: spinR 3s linear infinite;
+}
+
+@keyframes spinR {
+    from {
+        transform: rotate(1turn)
+    }
+}
