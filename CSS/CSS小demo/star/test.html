@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+       .container {
+           background: rgb(92, 228, 238);
+           height: 500px;
+       }      
+
+       .wrap {
+           margin: 0 auto;
+           width: 30px;
+           height: 30px;
+           animation: 6s xmove ease-in-out infinite;  
+       }
+
+       .ball {
+           width: 30px;
+           height: 30px;
+           border-radius: 50%;
+           animation: 6s ymove ease-in-out infinite;  
+           background: rgb(238, 163, 163);
+       }
+
+       @keyframes xmove {
+           from,to {
+               transform: translateX(0);
+           }
+           25% {
+               transform: translateX(100px);
+           }
+
+           75% {
+                transform: translateX(-100px);
+           }
+       }
+
+       @keyframes ymove {
+           from,to {
+               transform: translateY(0);
+           }
+           50% {
+               transform: translateY(70px);
+           }
+       }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="wrap">
+            <div class="ball"></div>
+        </div>
+    </div>
+</body>
+</html>

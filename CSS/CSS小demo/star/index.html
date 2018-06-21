@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>star</title>
+<style>
+    body {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, .7);
+        overflow: hidden;
+    }
+
+    .star-line {
+        border: 1px solid rgb(197, 195, 195);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .line1 {
+        height: 1000px;
+    }
+
+    .line2 {
+        height: 700px;
+        width: 1200px;
+    }
+
+    .star {
+        border-radius: 50%;
+    }
+
+    .star1 {
+        width: 100px;
+        height: 100px;
+        transform-origin: 0 0;
+        animation: spin1 3s cubic-bezier(.07,.76,.32,1.07) alternate; 
+    }
+
+    @keyframes spin1 {
+        from {
+            transform: rotate(0) translateY(-350px);
+        }
+
+        25% {
+            transform: rotate(90deg) translateY(-600px);
+        }
+/*         
+        60% {
+            transform: rotate(180deg) translateY(-350px)
+        }
+
+        75% {
+            transform: rotate(270deg) translateY(-600px);
+        }
+
+        to {
+            transform: translate(0, -350px);
+        } */
+    }
+</style>
+</head>
+<body>
+    <!-- 后期可以用canvas加上星星 -->
+    <div class="star-wrap">
+        <div class="star-line line1">
+            <div class="star-line line2">
+                <img src="star.png" alt="" class="star star1">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
