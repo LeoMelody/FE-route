@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>灵活的背景定位</title>
+    <style>
+        div {
+            /* background的几个属性 */
+            /*  */
+            
+            background: url(http://csssecrets.io/images/code-pirate.svg) no-repeat bottom right #58a;
+            background-position: bottom 10px right 20px;
+            /* style */
+            max-width: 10em;
+            min-height: 5em;
+            padding: 10px;
+            color: white;
+            font: 100%/1 sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="a b">
+
+    </div>
+    <script>
+        var div = document.querySelector('.a, .b')
+        console.dir(div)
+        var div2 = document.querySelector('[class="a b"]')
+        console.dir(div2)
+    </script>
+</body>
+</html>
