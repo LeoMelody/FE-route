@@ -1,0 +1,8 @@
+/node_module/
+*.DS_Store
+*.class
+*.apk
+bin/
+gen/
+.settings/
+proguard/
