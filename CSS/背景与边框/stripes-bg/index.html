@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>条纹背景</title>
+    <style>
+        .horizon {
+            /* 通过渐变的%来实现背景色实色填充 */
+            background: linear-gradient(to bottom, #fb3 30%, #58a 0, #58a 60%, yellowgreen 0);
+            background-size: 100% 40px;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .horizon > .h-content {
+            width: 500px;
+            margin: 0 auto;
+            margin-top: 100px;
+            height: 200px;
+            background: #fff;
+            filter: opacity(70%);
+        }
+
+        .vertical {
+            background: linear-gradient(to right, #fb3 50%, #58a 0);
+            background-size: 10% 400px;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .diagnol {
+            background: linear-gradient(60deg, #fb3 25%, #58a 0, #58a 50%, #fb3 0, #fb3 75%, #58a 0);
+            margin-top: 20px;
+            width: 400px;
+            height: 500px;
+            background-size: 80px 138.6px;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .diagnol-radial {
+            background: repeating-linear-gradient(60deg, #fb3,#fb3 15px, #58a 0, #58a 30px);
+            height: 400px;
+            width: 400px;
+        }
+    </style>
+</head>
+<body>
+    <p>水平条纹</p>
+    <div class="horizon">
+        <div class="h-content">
+        </div>
+    </div>
+
+    <div class="vertical">
+
+    </div>
+
+    <div class="diagnol">
+
+    </div>
+
+    <div class="diagnol-radial">
+
+    </div>
+</body>
+</html>

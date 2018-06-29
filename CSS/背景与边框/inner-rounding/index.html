@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>边框内圆角</title>
+    <style>
+        .m1 {
+            /* margin: 0 auto;
+            height: 150px; */
+            width: 300px;
+            background: #655;
+            padding: .8em;
+        }
+
+        .m1 > div {
+            /* margin: 0 auto; */
+            background: tan;
+            border-radius: .8em;
+            padding: 1em;
+        }
+
+        .m2 {
+            width: 300px;
+            background: tan;
+            border: none;
+            margin: 0;
+            border-radius: .8em;
+            padding: 1em;
+            box-shadow: 0 0 0 10px #655;
+            outline: 10px solid #655;
+        }
+    </style>
+</head>
+<body>
+<!-- 使用两个div内层border-radius+ 外层正常边框实现-->
+    <p>方法1</p>
+    <div class="m1">
+        <div>
+            I have a nice subtle inner rounding, don't I look pretty?
+        </div>
+    </div>
+    <p>方法2</p>
+    <div class="m2">
+        I have a nice subtle inner rounding, don't I look pretty?
+    </div>
+</body>
+</html>

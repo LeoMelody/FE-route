@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>重复渐变</title>
+    <style>
+        .repeat {
+            margin: 0 auto;
+            width: 400px;
+            height: 400px;
+        }
+
+        .repeat1 {
+            background: repeating-linear-gradient(60deg, #fba,#fba 15px,#58a 0,#58a 30px);
+        }
+
+        .repeat2 {
+            background: #58a;
+            background-img: repeating-linear-gradient(30deg,
+                    hsla(0,0%,100%,.1),
+                    hsla(0,0%,100%,.1) 15px,
+                    transparent 0, transparent 30px);
+        }
+    </style>
+</head>
+<body>
+    <!-- 这里我开始尝试使用repeat来实现重复的渐变 -->
+    <div class="repeat repeat1">
+
+    </div>
+    <div class="repeat repeat2">
+
+    </div>
+</body>
+</html>
