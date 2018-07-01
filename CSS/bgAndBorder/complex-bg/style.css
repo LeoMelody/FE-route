@@ -1,7 +1,20 @@
-.complex-bg {
+.tablecloth-bg {
   height: 420px;
   background: transparent;
   background-image: linear-gradient(to right, rgba(99, 133, 224, 0.5) 50%, transparent 0, transparent), linear-gradient(to bottom, rgba(99, 133, 224, 0.5) 50%, transparent 0, transparent);
   background-size: 40px 40px; }
+
+.rule-bg {
+  height: 300px;
+  background: #58a;
+  background-image: linear-gradient(white 1px, transparent 0), linear-gradient(90deg, white 1px, transparent 0);
+  background-size: 30px 30px; }
+
+.grid-bg {
+  width: 300px;
+  height: 300px;
+  background: transparent;
+  background-image: linear-gradient(#000 1px, transparent 0), linear-gradient(to right, #000 1px, transparent 0);
+  background-size: 30px 30px; }
 
 /*# sourceMappingURL=style.css.map */
