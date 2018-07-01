@@ -6,3 +6,4 @@ bin/
 gen/
 .settings/
 proguard/
+.sass-cache/

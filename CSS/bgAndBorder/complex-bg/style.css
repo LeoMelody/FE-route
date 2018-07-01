@@ -1,0 +1,7 @@
+.complex-bg {
+  height: 420px;
+  background: transparent;
+  background-image: linear-gradient(to right, rgba(99, 133, 224, 0.5) 50%, transparent 0, transparent), linear-gradient(to bottom, rgba(99, 133, 224, 0.5) 50%, transparent 0, transparent);
+  background-size: 40px 40px; }
+
+/*# sourceMappingURL=style.css.map */
