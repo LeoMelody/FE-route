@@ -14,7 +14,21 @@
     background: rgb(62, 163, 141);
 }
 
+#move:hover + .btn-move {
+    transform: translateX(100px);    
+}
 
 .move-left {
     transform: translateX(-100px);
+}
+
+.tr-test {
+    height: 300px;
+    background: tomato;
+    transform: translateY(60px);    
+    transition: all 1s;
+}
+
+.tr-test:hover {
+    transform: translateY(10px);
 }
