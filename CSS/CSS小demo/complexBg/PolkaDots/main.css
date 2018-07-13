@@ -1,0 +1,20 @@
+.polka {
+  background: #000;
+  width: 500px;
+  height: 500px;
+  background-image: radial-gradient(rgb(243, 150, 11) 5px, transparent 0),
+                    radial-gradient(rgb(40, 216, 16) 5px, transparent 0);
+  background-size: 50px 50px;
+  background-position: 0 0, 25px 25px;
+}
+
+.test-bg {
+  width: 500px;
+  height: 500px;
+  margin-top: 20px;
+  border: 1px solid #000;
+  background-image: url(test.jpg);
+  background-size: 100px 100px;
+  background-position: bottom 20px right 20px;
+  background-repeat: no-repeat;
+}

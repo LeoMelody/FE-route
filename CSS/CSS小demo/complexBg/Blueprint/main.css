@@ -1,0 +1,46 @@
+.blue-print {
+  background: #58a;
+  height: 500px;
+  background-image: linear-gradient(to bottom, #fff 2px, transparent 0),
+                    linear-gradient(to right,#fff 2px, transparent 0);
+  background-size: 50px 50px;
+}
+
+.masks{
+  margin-top: -500px;
+  height: 500px;
+  background: transparent;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.3) 1px, transparent 0),
+  linear-gradient(to right,rgba(255, 255, 255, 0.3) 1px, transparent 0);
+  background-size: 10px 10px;
+}
+
+
+.more-bg {
+  background: #58a;
+  height: 500px;
+  background-image: linear-gradient(to bottom, #fff 2px, transparent 0),
+                    linear-gradient(to right,#000 2px, transparent 0);
+                    /* background背景图像大小猜测 */
+  background-size: 50px 50px, 10px 10px;
+}
+
+.test-bg {
+  margin-top: 30px;
+  height: 500px;
+  border: 1px solid tomato;
+  background-image: url(test.jpg), url(test.jpg), url(test.jpg), url(test.jpg);
+  background-repeat: no-repeat;
+  background-size: 50px 50px, 100px 100px, 200px 200px, 300px 300px;
+}
+
+.real-blue-print {
+  margin-top: 30px;
+  height: 500px;
+  background: #58a;
+  background-image: linear-gradient(#fff 2px, transparent 0),
+                    linear-gradient(90deg, #ffffff 2px, transparent 0),
+                    linear-gradient(rgba(255,255,255,.3) 1px, transparent 0),
+                    linear-gradient(90deg, rgba(255,255,255,.3) 1px, transparent 0);
+  background-size: 50px 50px, 50px 50px, 10px 10px,10px 10px;
+}
