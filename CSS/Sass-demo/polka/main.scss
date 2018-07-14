@@ -1,0 +1,14 @@
+@mixin polka($size, $dot, $base, $accent) {
+  background: $base;
+  background-image: radial-gradient($accent $dot, transparent 0),
+                    radial-gradient($accent $dot, transparent 0);
+  background-size: $size $size;
+  background-position: 0 0, center center;
+}
+
+$hight: 500px;
+
+.polka {
+  @include polka(50px, 5px, #581, #dbeb80);
+  height: $hight;
+}

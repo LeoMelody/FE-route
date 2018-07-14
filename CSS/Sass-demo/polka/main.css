@@ -1,0 +1,8 @@
+.polka {
+  background: #581;
+  background-image: radial-gradient(#dbeb80 5px, transparent 0), radial-gradient(#dbeb80 5px, transparent 0);
+  background-size: 50px 50px;
+  background-position: 0 0, center center;
+  height: 500px; }
+
+/*# sourceMappingURL=main.css.map */
