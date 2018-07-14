@@ -1,0 +1,13 @@
+@mixin chessBoard($base, $color1, $size, $bgSize) {
+  width: $size;
+  height: $size;
+  background: $base;
+  background-image: linear-gradient(45deg,$color1 26%,transparent 0, transparent 75%, $color1 0),
+                    linear-gradient(45deg,$color1 26%,transparent 0, transparent 75%, $color1 0);
+  background-size: $bgSize $bgSize;
+  background-position: 0 0, center center;
+}
+
+.chessboard {
+  @include chessBoard(#eee, #878, 400px, 40px);
+}
