@@ -1,19 +1,23 @@
 const webpack = require('webpack')
 const path = require('path')
 const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin')
-
-const entry = path.join(__dirname, 'src', 'main.js') // TODO 后期更正为可配置
+const autoprefixer = require('autoprefixer')
+const entry = path.resolve(__dirname, '../src', 'main') // TODO 后期更正为可配置
+const VueLoaderPlugin = require('vue-loader/lib/plugin') // webpack4
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   entry,
   output: {
     filename: '[name].js',
-    path: path.join(__dirname, 'dist')
+    path: path.join(__dirname, '/dist')
   },
   resolve: {
-    '@': path.join(__dirname, 'src', 'components'),
-    '@P': path.join(__dirname, 'src', 'pages'),
-    'vue$': 'vue/dist/vue.esm.js'
+    alias: {
+      // '@': path.join(__dirname, '../src', 'components'),
+      // '@P': path.join(__dirname, '../src', 'pages'),
+      'vue$': 'vue/dist/vue.esm.js'
+    }
   },
   module: {
     rules: [
@@ -23,7 +27,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: new ExtractTextWebpackPlugin.extract({
+        use: ExtractTextWebpackPlugin.extract({
           fallback: 'style-loader',
           use: [
             'css-loader',
@@ -39,10 +43,11 @@ module.exports = {
       {
         test: /\.sass|scss$/,
         use: ['style-loader', 'css-loader']
-      },
-      {
-        test: /\.js$/,
       }
     ]
-  }
+  },
+  plugins: [
+    new VueLoaderPlugin(),
+    new ExtractTextWebpackPlugin('style.css')
+  ]
 }
