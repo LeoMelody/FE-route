@@ -6,6 +6,8 @@ const entry = path.resolve(__dirname, '../src', 'main') // TODO 后期更正为�
 const VueLoaderPlugin = require('vue-loader/lib/plugin') // webpack4
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
+console.log('根目录？' , __dirname)
+
 module.exports = {
   entry,
   output: {
@@ -14,8 +16,8 @@ module.exports = {
   },
   resolve: {
     alias: {
-      // '@': path.join(__dirname, '../src', 'components'),
-      // '@P': path.join(__dirname, '../src', 'pages'),
+      '@': path.join(__dirname, '../src', 'components'),
+      '@P': path.join(__dirname, '../src', 'pages'),
       'vue$': 'vue/dist/vue.esm.js'
     }
   },

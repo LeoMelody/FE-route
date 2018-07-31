@@ -1,12 +1,14 @@
 <template>
-  <router-view></router-view>
+  <div class="login-bg">
+      denglu
+  </div>
 </template>
 
 <script>
 export default {
   data() {
     return {
-      name: 'wyh'
+
     }
   }
 }
@@ -15,4 +17,3 @@ export default {
 <style lang="scss">
 
 </style>
-
