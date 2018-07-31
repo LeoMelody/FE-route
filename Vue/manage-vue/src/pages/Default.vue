@@ -1,6 +1,6 @@
 <template>
   <div>
-    zhuye
+    404 Not Found
   </div>
 </template>
 
@@ -8,7 +8,7 @@
 export default {
   data() {
     return {
-
+      
     }
   }
 }
