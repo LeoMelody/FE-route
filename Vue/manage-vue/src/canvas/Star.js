@@ -9,23 +9,25 @@ export default class Star {
 
   _init() {
     this.position = Random.RandomPosition(this._ctx.canvas.width, 20)
-    this.radius = Random.RandomRadius(5)
+    this.radius = Random.RandomRadius(6)
     this.v = Random.RandomVelocity(5)
-    this.startDrop()   
-    // requestAnimationFrame(this.startDrop)
+    this.fillStyle = 'rgba(255, 255, 255,' + Random.RandomOpacity() + ')'
+    this.drop()   
   }
 
   render() {
-    this.clearArc()
+    // this.clearArc()
     this._ctx.beginPath()
+    // 给小球增加阴影
+    this._ctx.shadowColor = '#fff'
+    this._ctx.shadowBlur = 15
     this.position.y += this.v/6
     this._ctx.arc(this.position.x, this.position.y, this.radius, 0, 2*Math.PI)
-    this._ctx.fillStyle = '#fff'
+    this._ctx.fillStyle = this.fillStyle
     this._ctx.fill()
   }
 
   clearArc() {
-    this._ctx.fillStyle = 'rgba(0,0,0,.8)'
     this._ctx.fillRect(this.position.x - this.radius, this.position.y - this.radius, 2 * this.radius, 2 * this.radius)
     // this._ctx.clearRect(0, 0, this._ctx.canvas.width, this._ctx.canvas.height)
     // this._ctx.fillStyle = 'rgba(0,0,0,.8)'
@@ -40,25 +42,9 @@ export default class Star {
   }
 
   /**
-   * 销毁小球
-   */
-  destroy() {
-    
-  }
-
-  /**
    * 开始降落
    */
-  startDrop() {
+  drop() {
     this.render()
-    // console.log(this.position)
-    if (this.position.y > this._ctx.canvas.height) {
-      console.log(this.position)
-      return 
-    } else {
-      requestAnimationFrame(() => {
-        this.startDrop()
-      })
-    }
   }
 }

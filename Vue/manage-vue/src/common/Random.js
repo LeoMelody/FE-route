@@ -29,4 +29,11 @@ export default class Random {
   static RandomVelocity(v) {
     return Math.floor(Math.random()*5+(v || 0))
   }
+
+  /**
+   * 生成随机透明度
+   */
+  static RandomOpacity() {
+    return Math.random()
+  }
 }
