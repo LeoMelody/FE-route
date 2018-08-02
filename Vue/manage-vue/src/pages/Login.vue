@@ -1,6 +1,6 @@
 <template>
   <div>
-      <canvas class="bg-wrap" id="canvas"></canvas>
+    <canvas class="bg-wrap" id="canvas"></canvas>
   </div>
 </template>
 
