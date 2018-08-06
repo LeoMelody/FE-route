@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Loading</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="canvas"></canvas>
+  <script src="../base.js"></script>
+  <script>
+    var current = 0
+    const Unit = 1/100
+    ctx.strokeStyle = 'yellowgreen'
+    ctx.lineWidth = 5
+    ctx.font = "28px '微软雅黑'"
+    ctx.fillStyle = '#000'
+    ctx.textAlign = 'center'
+    ctx.textBaseline = 'middle'
+    render()
+    
+    function render() {
+      if(current >= 1) {
+        current = 0
+      }
+      current += Unit
+      init()
+      ctx.arc(canvas.width/2, canvas.height/2, 100, 0, current*2*Math.PI)
+      ctx.fillText((current*100).toFixed(0) + '%', canvas.width/2, canvas.height/2)
+      ctx.stroke()
+      requestAnimationFrame(render)
+    }
+  </script>
+</body>
+</html>
