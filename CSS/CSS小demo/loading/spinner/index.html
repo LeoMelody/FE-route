@@ -17,12 +17,13 @@
     .spinner i {
       position: absolute;
       clip: rect(0, 1em, 1em, .5em);
+      /* 这个表示切了一半 */
       width: 1em;
       height: 1em;
-      animation: spinner-circle-clipper 1s ease-in-out infinite;
+      /* animation: spinner-circle-clipper 1s ease-in-out infinite; */
     }
 
-    /* @keyframes spinner-circle-clipper {
+    @keyframes spinner-circle-clipper {
       0% {
         transform: rotate(0deg);
       }
@@ -30,11 +31,12 @@
       100% {
         transform: rotate(180deg);
       }
-    } */
+    }
 
     .spinner i:after {
     position: absolute;
     clip: rect(0, 1em, 1em, .5em);
+    /* 切了一半 */
     width: 1em;
     height: 1em;
     content: '';
@@ -49,14 +51,115 @@
     }
 
     100% {
-        transform: rotate(180deg);
+        transform: rotate(0deg);
     }
 }
+  /* 学习部分 */
+  .demo {
+    font-size: 200px;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 .1em rgba(58, 168, 237, .2);
+  }
+
+  .demo1 > .loading-wrap {
+    position: absolute;
+    width: 1em;
+    height: 1em;
+    clip: rect(0, 1em, 1em, .5em); 
+    /* 显示右半边 */
+  }
+
+  .demo1 > .loading-wrap::after {
+    content: '';
+    position: absolute;
+    width: 1em;
+    height: 1em;
+    clip: rect(0, .5em, 1em, 0em);
+     /*显示左半边  */
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 .1em #3aa8ed;
+    animation: demofirst 2s linear forwards;
+  }
+
+  @keyframes demofirst {
+    0% {
+      transform: rotate(0);
+    }
+
+    100% {
+      transform: rotate(180deg);
+    }
+  }
+
+  .demo2 > .loading-wrap {
+    position: absolute;
+    width: 1em;
+    height: 1em;
+  }
+
+  .demo2 > .loading-left {
+    clip: rect(0, 1em, 1em, .5em);
+  }
+
+  .demo2 > .loading-right {
+    clip: rect(0, .5em, 1em, 0em);
+  }
+
+  .demo2 > .loading-left::after {
+    position: absolute;
+    content: '';
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 .1em #3aa8ed;
+    width: 1em;
+    height: 1em;
+    clip: rect(0, .5em, 1em, 0em);
+    animation: leftL 2s forwards linear;
+  }
+
+  .demo2 > .loading-right::after {
+    position: absolute;
+    content: '';
+    border-radius: 50%;
+    width: 1em;
+    height: 1em;
+    box-shadow: inset 0 0 0 .1em #3aa8ed;
+    clip: rect(0, 1em, 1em, .5em);    
+    animation: rightL 2s forwards linear 2s;
+  }
+
+  @keyframes leftL {
+    0% {
+      transform: rotate(0);
+    }
+    100% {
+      transform: rotate(180deg);
+    }
+  }
+
+  @keyframes rightL {
+    0% {
+      transform: rotate(0);
+    }
+    100% {
+      transform: rotate(180deg);
+    }
+  }
   </style>
 </head>
 <body>
-  <div class="spinner">
+  <!-- <div class="spinner">
     <i></i>
+  </div> -->
+
+  <div class="demo demo1">
+    <i class="loading-wrap"></i>
+  </div>
+
+  <div class="demo demo2">
+    <i class="loading-wrap loading-left"></i>
+    <i class="loading-wrap loading-right"></i>
   </div>
 </body>
 </html>

@@ -8,16 +8,23 @@
 </head>
 <body>
     <div id="app">
-        
+        {{name}}
+        <ul>
+            <li v-for="item in list">{{item}}</li>
+        </ul>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <script>
         var vm = new Vue({
+            el: '#app',
             data: {
-                name: 'wyh'
+                name: 'wyh',
+                list: []
             },
             created() {
-                console.log(this)
+                console.log(this.name)
+                var list = this.list
+                list.push(1)
             }
         })
     </script>
