@@ -1,8 +1,8 @@
-import {$} from './libs/document.js';
-import {alert} from './libs/alert.js'
+import Vue from 'vue/dist/vue.esm'
+import App from './App.vue'
 
-let btn = $.getEle('#btn')
-
-btn.addEventListener('click', (e) => {
-  new alert('哈哈哈')
+const vm = new Vue({
+  el: '#app',
+  components: { App },
+  template: '<App/>'
 })
