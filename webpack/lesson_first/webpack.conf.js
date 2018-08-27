@@ -1,5 +1,6 @@
 const path = require('path')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   entry: path.resolve(__dirname, 'src/index.js'),
@@ -28,6 +29,13 @@ module.exports = {
     ]
   },
   plugins: [
-    new VueLoaderPlugin()
-  ]
+    new VueLoaderPlugin(),
+    new HtmlWebpackPlugin({
+      template: 'index.html',
+      title: 'DevServer'
+    })
+  ],
+  devServer: {
+    historyApiFallback: true,
+  }
 }
