@@ -19,7 +19,7 @@ export default {
 
 <style>
   .font {
-    color: tomato;
+    color: rgb(66, 252, 29);
   }
 </style>
 

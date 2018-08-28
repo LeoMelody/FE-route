@@ -1,11 +1,13 @@
 const path = require('path')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
 
 module.exports = {
   entry: path.resolve(__dirname, 'src/index.js'),
   output: {
-    filename: 'bundle.js',
+    filename: '[name].[hash].js',
     path: path.resolve(__dirname, 'dist')
   },
   module: {
@@ -23,7 +25,7 @@ module.exports = {
       },
       {
         test: /\.css$/, 
-        loader: 'style-loader!css-loader',
+        use: [MiniCSSExtractPlugin.loader, 'css-loader'],
         exclude: '/node_modules/'
       }
     ]
@@ -33,6 +35,13 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: 'index.html',
       title: 'DevServer'
+    }),
+    new MiniCSSExtractPlugin({
+      filename: '[name].[hash].css',
+      chunkFilename: '[id].css'
+    }),
+    new CleanWebpackPlugin(['dist'], { // 接收一个数组和一个对象，数组来规定在指定目录下删除哪些文件，对象为配置项
+      root: path.resolve(__dirname) // 定义开始清空的目录
     })
   ],
   devServer: {
