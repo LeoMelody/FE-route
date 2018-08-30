@@ -1,5 +1,5 @@
 <template>
-  <div class="font">
+  <div class="body">
     我是第一版测试代码，devServer完成
     <!-- <div class="icon">
       <img src="./assets/star.png" alt="" srcset="" width="200" height="200">
@@ -30,19 +30,26 @@ export default {
 }
 </script>
 
-<style>
-  .font {
-    color: rgb(66, 252, 29);
-  }
+<style lang="scss" scoped>
+$height: 200px;
+$fontColor: rgb(66, 252, 29);
+@mixin bg($url, $w, $h) {
+  background: url($url) no-repeat  0px 0px;
+  background-size: $w $h;
+}
 
+.body {
+  color: $fontColor;
   .icon-big {
-    height: 200px;
-    background: url(./assets/star.png) no-repeat 0px 0px / 200px 200px; 
+    height: $height;
+    @include bg('./assets/star.png', 200px, 200px);
   }
 
   .icon-sm {
-    height: 200px;
-    background: url(./assets/cz.png) no-repeat 0px 0px / 50px 50px; 
+    height: $height;
+    @include bg('./assets/cz.png', 50px, 50px);
   }
+}
+
 </style>
 

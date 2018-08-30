@@ -2,7 +2,7 @@
  * @Author: leo 
  * @Date: 2018-08-28 11:50:44 
  * @Last Modified by: leo
- * @Last Modified time: 2018-08-30 10:38:44
+ * @Last Modified time: 2018-08-30 15:38:59
  * webpack 基础配置文件
  */
 
@@ -39,6 +39,10 @@ module.exports ={
       {
         test: /\.(png|jpg|gif)$/, // 匹配png，jpg，gif这三类图片
         loader: 'url-loader?limit=8192' // 限制大小小于8192b的图片会转为base64
+      },
+      {
+        test: /\.(sass|scss)$/, // 匹配sass或scss
+        use: [MiniCSSExtractPlugin.loader, 'css-loader','sass-loader']
       }
     ]
   },
