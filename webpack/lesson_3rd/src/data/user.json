@@ -1,0 +1,11 @@
+{
+  "retCode": "1",
+  "retMsg": "成功",
+  "data": {
+    "realName":"王一衡",
+    "mobileNo":"18575534546",
+    "cityName": "深圳",
+    "walletBalance":1000.0,
+    "userNo":"1000000003"
+  }
+}
