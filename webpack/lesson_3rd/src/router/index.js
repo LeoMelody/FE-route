@@ -1,6 +1,6 @@
-import Vue from 'vue/dist/vue.esm'
+import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '../pages/Home.vue'
+import Home from '@P/Home.vue'
 
 Vue.use(Router)
 

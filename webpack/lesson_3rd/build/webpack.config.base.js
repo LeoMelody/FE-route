@@ -2,7 +2,7 @@
  * @Author: leo 
  * @Date: 2018-08-28 11:50:44 
  * @Last Modified by: leo
- * @Last Modified time: 2018-08-30 15:38:59
+ * @Last Modified time: 2018-09-04 10:57:38
  * webpack 基础配置文件
  */
 
@@ -12,6 +12,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
 // 定义resolve函数便于处理路径
 const resolve = (src) => path.resolve(__dirname, '..', src)
+const config = require('./config')
+const alias = require('./alias')
 
 module.exports ={
   entry: resolve('src/index.js'),
@@ -56,5 +58,9 @@ module.exports ={
       filename: '[name].[hash].css',
       chunkFilename: '[id].css'
     })
-  ]
+  ],
+  resolve: {
+    extensions: ['.js', '.vue', '.json'],
+    alias
+  }
 } 
