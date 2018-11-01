@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .canvas {
+      border: 1px solid tomato;
+    }
+    #canvas1 {
+      height: 300px;
+      width: 600px;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="canvas1" class="canvas">
+    canvas1
+  </canvas>
+  <canvas id="canvas2" class="canvas" width="600" height="300">
+    canvas2
+  </canvas>
+
+  <script>
+    const CANVASONE = document.querySelector('#canvas1')
+    const CANVASTWO = document.querySelector('#canvas2')
+    const CONTEXT_1 = CANVASONE.getContext('2d')
+    const CONTEXT_2 = CANVASTWO.getContext('2d')
+    
+    CONTEXT_1.font = CONTEXT_2.font = '38pt'
+    CONTEXT_1.fillStyle = CONTEXT_2.fillStyle = '#333'
+    CONTEXT_1.fillText('hello world', 100, 100)
+    CONTEXT_2.fillText('hello world', 100, 100)
+  </script>
+</body>
+</html>

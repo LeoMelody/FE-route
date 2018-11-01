@@ -1,8 +1,8 @@
 /*
  * @Author: wangyiheng 
  * @Date: 2018-06-21 10:50:54 
- * @Last Modified by: wangyiheng
- * @Last Modified time: 2018-06-21 14:51:03
+ * @Last Modified by: leo
+ * @Last Modified time: 2018-10-31 11:14:29
  * @description  Js great code snippet 1~5
  * 一天学习几个经典的great code 的写法，思想，新的语法等。一定要知其然知其所以然
  */
@@ -35,4 +35,3 @@ console.log(arr2.filter(Boolean)) // 可以过滤掉所有值可转换为false�
 // console.log(Boolean(NaN)) // false
 
 // 5、计算数组中值出现的次数
-const 
