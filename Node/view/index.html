@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    server2
+  </div>
+  <script>
+    const xhr = new XMLHttpRequest()
+    // 由于当前页面为3001端口，所以这个请求会出现下面这个错误：
+    // Access to XMLHttpRequest at 'http://127.0.0.1:3000/' from origin 'http://localhost:3001' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+    // 从3001 用XHR访问 3000 被CORS（同源策略）原则禁止 当前请求源没有‘Access-Control-Allow-Origin’的头部信息
+
+    // 那通过这句话，可以思考，是不是设置了 允许访问源控制 就可以跨域访问了（不会被CORS禁止了）？
+    // 那么我们要如何设置这个头部呢？
+    // 在考虑这个问题之前，我们先考虑，这个跨域请求到底有没有到达后台服务器
+    // 到底是后端告诉我们跨域了还是前端告诉我们跨域了？
+    // 根据我自己尝试，这个请求实际上是到达了后台服务器。那就说明，要解决掉由CORS引起问题呢？
+    // 再server/index中通过设置response的header解决了这个问题
+    
+    // 那么为什么会出现这个问题，这个问题其实是由于浏览器发现我们在搞危险操作，它会根据CORS原则禁止我们搞这种骚东西
+    // 那我们是用户（上帝！！！），我们就是要用这个，那我们可以在响应头里面告诉浏览器，我就是要跨域
+    // response.writeHead(200, {
+    //   "Access-Control-Allow-Origin": "*"
+    // })
+    // 这样，就解决了
+    xhr.open('get', 'http://127.0.0.1:3000')
+    xhr.send()
+  </script>
+</body>
+</html>
