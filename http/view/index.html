@@ -11,7 +11,15 @@
     server2
   </div>
   <script>
-    // 使用fetch
+    // 使用fetch A
+    fetch('http://localhost:3000/', {
+      method: 'PUT',
+      headers: {
+        'X-Test-Cors': '123'
+      }
+    })
+
+    // B
     fetch('http://localhost:3000/', {
       method: 'GET',
       headers: {
