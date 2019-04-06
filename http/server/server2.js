@@ -8,7 +8,8 @@ http.createServer((req, res) => {
     // const html = fs.readFileSync('../view/jsonp.html', 'utf-8') 
     res.writeHead(200, {
       'Content-Type': 'text/html', // 声明内容类型为html格式
-      'Cache-Control': 'max-age=20'
+      'Cache-Control': 'max-age=20',
+      'Set-Cookie': 'test=123'
     })
     res.end(html)
   }
