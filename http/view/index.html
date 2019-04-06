@@ -10,22 +10,15 @@
   <div>
     server2
   </div>
-  <script>
-    // 使用fetch A
-    fetch('http://localhost:3000/', {
-      method: 'PUT',
-      headers: {
-        'X-Test-Cors': '123'
-      }
+  <script src="/script.js"></script>
+  <script src="/no-store.js"></script>
+  <!-- <script>
+    let result = null
+    fetch('/api/test').then(response => {
+      return response.json()
+    }).then(data => {
+      console.log(data)
     })
-
-    // B
-    fetch('http://localhost:3000/', {
-      method: 'GET',
-      headers: {
-        'X-Test-Cors': '123'
-      }
-    })
-  </script>
+  </script> -->
 </body>
 </html>
