@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <button id="btn">点我测试</button>
+  <form action="/form" enctype="application/x-www-form-urlencoded" method="POST" id="form">
+    <input type="text" name="name" />
+    <input type="password" name="password" />
+    <input type="file" name="file">
+    <input type="submit" value="提交">
+  </form>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+    axios.defaults.headers.get['Content-Type'] = 'application/x-www-form-urlencoded'
+    axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
+    axios.interceptors.request.use((config) => {
+      return config
+    })
+    const btn = document.querySelector('#btn')
+    const form = document.querySelector('#form')
+    form.addEventListener('submit', (e) => {
+      e.preventDefault()
+      let formData = new FormData(form)
+      axios({
+        method: 'post',
+        url: '/form',
+        data: formData,
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      }).then(res => {
+        console.log(res)
+      })
+    })
+    
+  </script>
+</body>
+
+</html>

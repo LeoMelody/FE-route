@@ -7,3 +7,5 @@ gen/
 .settings/
 proguard/
 .sass-cache/
+*/**/node_modules/
+.vscode
