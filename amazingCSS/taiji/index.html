@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>太极图</title>
+  <style>
+    .cover {
+      padding: 30% 50%;
+      background: linear-gradient(to right, white 50%, black calc(50% + 1px));
+      position: relative;
+      font-size: 200%;
+    }
+
+   .cover::before,
+    .cover::after {
+      content: '';
+      position: absolute;
+      width: 36%;
+      height: 50%;
+      border-radius: 50%;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+    }
+
+    .cover::before {
+      top: 0;
+      background: radial-gradient(circle, white 13%, black calc(13% + 1px));
+    }
+ /* 
+    .cover::after {
+      bottom: 0;
+      background: radial-gradient(circle, black 13%, white calc(13% + 1px));
+    } */
+    /* my taiji */
+
+    .taiji {
+      border: 1px solid #e5e5e5;
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      margin: 0 auto;
+      background: linear-gradient(to right,#fff 50%, #000 50%);
+      /* animation: circle 3s linear forwards infinite; */
+    }
+
+    .son {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin: 0 auto;
+      display: flex;
+    }
+
+    .up {
+      background: #000;
+    }
+
+    .down {
+      background: #fff;
+    }
+
+    .down > .circle {
+      background: #000;
+    }
+
+    .up > .circle {
+      background: #fff;
+    }
+
+    .circle {
+      width: 15px;
+      height: 15px;
+      margin: auto;
+      border-radius: 50%;
+    }
+
+    @keyframes circle {
+      0% {
+
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 太极图 -->
+  <div class="cover">
+    <div class="cover-h"></div>
+  </div>
+  <!-- 我的想法 -->
+  <div class="taiji">
+    <div class="son up">
+      <div class="circle"></div>
+    </div>
+    <div class="son down">
+      <div class="circle"></div>
+    </div>
+  </div>
+</body>
+
+</html>
