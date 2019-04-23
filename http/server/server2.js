@@ -2,8 +2,9 @@ const http = require('http')
 const fs = require('fs')
 
 http.createServer((req, res) => {
-  console.log('req', req.url)
+  // console.log('req', req.url)
   if (req.url === '/') {
+    console.log(req.headers['user-agent'])
     const html = fs.readFileSync('../view/index.html', 'utf-8') // 这里必须要设置读取的格式为utf-8，是因为如果不设置读取格式，readFileSync方法会读取文件的二进制流数据
     // const html = fs.readFileSync('../view/jsonp.html', 'utf-8') 
     res.writeHead(200, {
@@ -40,7 +41,7 @@ http.createServer((req, res) => {
   if (req.url === '/no-store.js') {
     let etag = req.headers['if-none-match']
     // console.log(req.headers)
-    console.log('etag = ', etag)
+    // console.log('etag = ', etag)
     if (etag === '54321') { // 这里先写死测试数据签名54321
       res.writeHead(304, {
         'Content-Type': 'text/javascript',
@@ -48,7 +49,7 @@ http.createServer((req, res) => {
         'Last-Modified': '123456',
         'Etag': '54321'
       })
-      console.log('use 304')
+      // console.log('use 304')
       res.end('')
     } else {
       res.writeHead(200, {
