@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Html2Canvas</title>
+</head>
+<body>
+   
+    <div id="capture" style="padding: 10px; background: #f5da55">
+      <h4 style="color: #000; ">Hello world!</h4>
+    </div>
+  <script src="./html2canvas.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vConsole/3.2.0/vconsole.min.js"></script>
+  <script>
+    // init vConsole
+    var vConsole = new VConsole();
+    // html2canvas 官方demo代码
+    html2canvas(document.querySelector("#capture")).then(canvas => {
+      document.body.appendChild(canvas)
+      // canvas 转 img
+      const img = new Image()
+      img.src = canvas.toDataURL("image/png") // 这里需要指定格式
+      document.body.appendChild(img)
+
+      const a = document.createElement('a')
+      a.setAttribute('href', img.src)
+      a.setAttribute('download', 'downImg')
+      a.innerHTML = '点我下载'
+      document.body.appendChild(a)
+
+    });
+  </script>
+</body>
+</html>
