@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Heart</title>
+  <style>
+    .heart {
+      margin: 100px auto 0;
+      width: 100px;
+      height: 100px;
+      background: red;
+      position: relative;
+      transform: rotate(-45deg);
+      animation: bling 1s ease infinite;
+    }
+
+    @keyframes bling {
+      0% {
+        opacity: .3;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background: inherit;
+      border-radius: 50%;
+      top: 0;
+      right: -50%;
+    }
+
+    .heart::before {
+      content: '';
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background: inherit;
+      border-radius: 50%;
+      left: 0;
+      top: -50%;
+    }
+  </style>
+</head>
+<body>
+  <div class="heart"></div>
+</body>
+</html>
