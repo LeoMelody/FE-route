@@ -1,8 +1,8 @@
 /*
  * @Author: wangyiheng 
  * @Date: 2018-06-21 15:04:45 
- * @Last Modified by: wangyiheng
- * @Last Modified time: 2018-06-21 15:41:23
+ * @Last Modified by: leo
+ * @Last Modified time: 2019-06-30 10:15:10
  * 从一些简单的例子入手来认知函数式编程
  */
 /**
@@ -48,5 +48,5 @@ flock_b = 2
 flock_c = 0
 console.log(conjoin(breed(flock_a, flock_b), breed(conjoin(flock_a,flock_c), flock_b))) // 满足了我们的需求
 // 问题： 这尼玛代码也太鸡儿长了吧
-// 其实根据初中的数学知识，上面的这个东西可以变换成
+// 其实根据初中的数学知识，上面的这个东西可以变换成 。。。。 合并同类项。。。
 console.log(breed(conjoin(flock_a, flock_a, flock_c), flock_b))
