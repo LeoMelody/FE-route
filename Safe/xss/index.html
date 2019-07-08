@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    首页
+    <input type="text" id="v" placeholder="请输入评论" /> <button id="b">发送</button>
+    <div id="comment">
+    </div>
+  </div>
+  <script>
+    (function() {
+      const b = document.querySelector('#b')
+      const v = document.querySelector('#v')
+      const comment = document.querySelector('#comment')
+      b.addEventListener('click', function(e) {
+        // if (!v.value) return 
+        // fetch(`/send?value=${v.value}`).then(data => {
+        //   return data.json()
+        // }).then(res => {
+        //   console.log(res)
+        //   appendComment(res.value)
+        // })
+        
+        appendComment('<script>alert(123)<\/script>')
+        
+      })
+
+      function appendComment(text) {
+        let frg = document.createDocumentFragment()
+        let div = document.createElement('div')
+        div.innerHTML = text
+        frg.appendChild(div)
+        document.body.appendChild(frg)
+      }
+    })();
+  </script>
+</body>
+</html>
