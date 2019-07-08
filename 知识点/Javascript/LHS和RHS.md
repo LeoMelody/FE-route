@@ -73,4 +73,6 @@ console.log(y)
 
 ## 严格模式
 
+在严格模式下，我们会发现LHS如果没有查找到赋值对象也是会报错的。
+
 [github地址](https://github.com/LeoMelody/FE-route/tree/master/%E7%9F%A5%E8%AF%86%E7%82%B9/Javascript)
