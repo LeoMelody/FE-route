@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style id="style">
+    body {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div>
+
+    123
+  </div>
+  <script>
+    if (top === self) {
+      console.log('?')
+      const style = document.querySelector('#style')
+      document.head.removeChild(style)
+    } else {
+      // 隐藏
+      top.location = self.location
+    }
+  </script>
+</body>
+</html>
