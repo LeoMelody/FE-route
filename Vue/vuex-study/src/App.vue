@@ -8,6 +8,21 @@
   </div>
 </template>
 
+<script>
+export default {
+  name: 'wyh',
+  data() {
+    return {
+      name: 'xxxxxxxx'
+    }
+  },
+  mounted() {
+    console.log('App')
+  },
+}
+</script>
+
+
 <style>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;

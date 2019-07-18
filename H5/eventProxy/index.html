@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <ul id="ul">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+  </ul>
+  <script>
+    let current
+    let ul = document.querySelector('#ul')
+    let li = document.querySelectorAll('#ul>li') // NodeList very big
+    // 手动去
+    Array.prototype.map.call(li, (item, index) => {
+      item.dataset.index = index + 1
+    })
+    ul.addEventListener('click', (event) => {
+      console.log(event)
+      current = event.target
+      // 获取index
+      console.log(Array.prototype.findIndex.call(li, item => item === current))
+      
+    })
+  </script>
+</body>
+</html>
