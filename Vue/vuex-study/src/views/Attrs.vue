@@ -6,14 +6,13 @@
       :name="name"
       :age="age"
       :address="address"
-      :salary="salary"/>
-    <son-b />
+      :salary="salary"
+      @add="changeAddress"/>
   </div>
 </template>
 
 <script>
 import sonA from '../components/attrs/firstA'
-import sonB from '../components/attrs/firstB'
 export default {
   data() {
     return {
@@ -24,8 +23,12 @@ export default {
     }
   },
   components: {
-    sonA,
-    sonB
-  }
+    sonA
+  },
+  methods: {
+    changeAddress(val) {
+      this.address = val
+    }
+  },
 }
 </script>

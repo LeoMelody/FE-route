@@ -6,7 +6,7 @@
         如果在props中定义了哪些属性是父组件传递给自组件通信用的数据，则$attrs就不会保留它</p>
       {{$attrs}}
     </div>
-    <son-a v-bind="$attrs"/>
+    <son-a v-bind="$attrs" title="secondSon" v-on="$listeners"/>
   </div>  
 </template>
 
@@ -20,6 +20,8 @@ export default {
     name: String,
     age: Number
   },
-  inheritAttrs: true // inheritAttrs 是用来声明是否
+  inheritAttrs: false, // inheritAttrs 是用来声明是否
+  methods: {
+  },
 }
 </script>
