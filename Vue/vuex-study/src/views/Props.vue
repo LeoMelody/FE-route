@@ -1,21 +1,25 @@
 <template>
   <div>
     <p>Props 进行数据传递</p>
-    <p>姓名: {{name}}</p>
-    <son :name="name"/>
+    <Customer v-for="(item,index) in names" :index="index" :name="item" :key="item" @rename="rename" />
   </div>
 </template>
 
 <script>
-import son from '../components/props/son'
+import Customer from '../components/props/Customer'
 export default {
   data() {
     return {
-      name: 'wyh'
+      names: ['wyh1','wyh2','wyh3','wyh4','wyh5']
     }
   },
   components: {
-    son
-  }
+    Customer
+  },
+  methods: {
+    rename(index, item) {
+      console.log(index, item)
+    }
+  },
 }
 </script>

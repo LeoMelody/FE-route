@@ -17,7 +17,6 @@ export default {
     }
   },
   mounted() {
-    console.log('App')
   },
 }
 </script>
