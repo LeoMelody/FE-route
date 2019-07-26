@@ -4,6 +4,7 @@
     <router-link to="/eventBus">eventBus进行通信</router-link><br>
     <router-link to="/attrs">attrs进行通信</router-link><br>
     <router-link to="/props">props进行通信</router-link><br>
+    <router-link to="/provide">provide进行通信</router-link><br>
 
     <!-- <router-link to="/communication/eventBus">eventBus进行通信</router-link><br>
     <router-link to="/communication/eventBus">eventBus进行通信</router-link><br>

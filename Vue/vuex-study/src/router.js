@@ -4,6 +4,7 @@ import Home from './views/Home.vue'
 import EventBus from './views/EventBus.vue'
 import Attrs from './views/Attrs.vue'
 import Props from './views/Props.vue'
+import Provide from './views/provide.vue'
 
 Vue.use(Router)
 
@@ -36,6 +37,11 @@ export default new Router({
       path: '/props',
       name: 'props',
       component: Props
+    },
+    {
+      path: '/provide',
+      name: 'provide',
+      component: Provide
     }
   ]
 })

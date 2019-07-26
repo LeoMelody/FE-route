@@ -18,7 +18,8 @@ export default {
   },
   methods: {
     rename(index, item) {
-      console.log(index, item)
+      // console.log(index, item)
+      this.$set(this.names, index, item)
     }
   },
 }
