@@ -2,12 +2,11 @@
  * @Author: leo 
  * @Date: 2019-07-29 11:22:34 
  * @Last Modified by: leo
- * @Last Modified time: 2019-07-29 11:29:26
+ * @Last Modified time: 2019-07-29 16:28:59
  * Object.defineProperty
  * @description Object.defineProperty(obj, prop, descriptor) 
  * @return obj
  */
-
 let obj = {
   name: 'wyh'
 }
