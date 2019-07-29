@@ -22,5 +22,8 @@ export default {
       this.$set(this.names, index, item)
     }
   },
+  mounted() {
+    console.log(this)
+  },
 }
 </script>

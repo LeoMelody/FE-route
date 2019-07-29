@@ -6,6 +6,11 @@
 
 <script>
 export default {
-  inject: ['order']
+  inject: {
+    order: {
+      from: 'order',
+      default: 17
+    }
+  }
 }
 </script>

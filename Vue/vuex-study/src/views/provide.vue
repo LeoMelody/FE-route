@@ -7,6 +7,7 @@
 
 <script>
 import Customer from '../components/provide/Customer'
+import Vue from 'vue'
 export default {
   data() {
     return {
@@ -20,9 +21,12 @@ export default {
     Customer
   },
   provide() {
+    // 生成响应式对象
+    this.data = Vue.observable(this.info)
     return {
       name: this.info.name,
-      order: this.info.order
+      order: this.info.order,
+      data: this.data
     }
   }
 }
