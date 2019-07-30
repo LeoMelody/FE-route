@@ -1,32 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
 </head>
+
 <body>
-    <div id="app">
-        {{name}}
-        <ul>
-            <li v-for="item in list">{{item}}</li>
-        </ul>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-    <script>
-        var vm = new Vue({
-            el: '#app',
-            data: {
-                name: 'wyh',
-                list: []
-            },
-            created() {
-                console.log(this.name)
-                var list = this.list
-                list.push(1)
-            }
-        })
-    </script>
+  <div id="app"></div>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script>
+    Vue.component('hello-world', {
+      template: `<div>hello world {{name}}</div>`,
+      render: h => {
+        return h(
+          
+        )
+      },
+      props: {
+        name: String
+      }
+    })
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        name: 'wyh',
+        list: []
+      },
+      created() {
+        console.log(this.name)
+        var list = this.list
+        list.push(1)
+      },
+      template: `
+        <div>
+          <hello-world :name="name" />  
+        </div>
+      `
+    })
+  </script>
 </body>
+
 </html>

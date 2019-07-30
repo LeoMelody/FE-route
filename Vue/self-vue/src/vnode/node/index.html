@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>观察Node</title>
+</head>
+<body>
+  <div id="app">
+    123
+    <div>123</div>
+  </div>
+  <script>
+    const app = document.querySelector('#app')
+    console.log(app.childNodes) // 1 text node （text content） 2 div tagnode 3 text node
+    // vnode就是借鉴这种形式，将我们写的html转成这种JavaScript对象的数据形式，这样，就可以通过JavaScript对象
+    // 来描述这些html节点
+  </script>
+</body>
+</html>
