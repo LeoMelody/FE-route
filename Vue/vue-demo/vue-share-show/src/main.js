@@ -16,6 +16,10 @@ new Vue({
   components: {
     App
   },
-  template: '<App/>',
-  router
+  template: '<div class="title" :title="title">{{name}}</div>',
+  router,
+  data: {
+    name: 'wyh',
+    title: 'title2'
+  }
 })
