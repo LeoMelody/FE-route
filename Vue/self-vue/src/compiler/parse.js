@@ -2,7 +2,7 @@
  * @Author: leo
  * @Date: 2019-07-30 11:51:28
  * @Last Modified by: leo
- * @Last Modified time: 2019-07-31 15:46:14
+ * @Last Modified time: 2019-07-31 16:43:55
  */
 
 // 🌟这里要使用outerHTML来获取当前模板的HTML字符串
@@ -38,9 +38,7 @@ const forAliasRE = /([\s\S]*?)\s+(?:in|of)\s+([\s\S]*)/ // 匹配  char in char�
 const forIteratorRE = /,([^,\}\]]*)(?:,([^,\}\]]*))?$/ // 匹配 匹配 字符A（除了}],）,  字符B(除了}],) 
 const stripParensRE = /^\(|\)$/g
 
-
-
-// 这些正则我们不需要关系大佬怎么写出来的。只需要知道，
+// 这些正则我们不需要关心大佬怎么写出来的。只需要知道，
 // 有了这几个正则，我们可以匹配到 标签开始，标签结束，直接关闭的标签，注释标签，属性就可以开始真正的parse了
 
 /**
@@ -49,8 +47,7 @@ const stripParensRE = /^\(|\)$/g
  * @param {*} options 其他配置
  */
 function parse(template, options) {
-  const stack = []
-  let root, currentParent
+  return parseHTML(template, options)
 }
 
 /**
