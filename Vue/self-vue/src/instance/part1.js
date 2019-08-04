@@ -2,13 +2,13 @@
  * @Author: leo 
  * @Date: 2019-07-29 11:32:42 
  * @Last Modified by: leo
- * @Last Modified time: 2019-07-29 11:50:05
+ * @Last Modified time: 2019-08-02 16:55:02
  * selfVue 第一部分
  */
 
 class SelfVue {
-  constructor(obj = {}) {
-    this.$data = obj.data
+  constructor(options = {}) {
+    this.$data = options.data
     observer(this.$data)
   }
 }

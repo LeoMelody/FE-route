@@ -2,7 +2,7 @@
  * @Author: leo 
  * @Date: 2019-07-29 11:32:42 
  * @Last Modified by: leo
- * @Last Modified time: 2019-07-30 09:42:24
+ * @Last Modified time: 2019-08-02 17:19:43
  * selfVue 第一部分
  */
 
@@ -54,8 +54,9 @@ class Watcher {
    * 强制触发observer中的get
    */
   get() {
-    Dep.target = this
+    Dep.target = this // 
     // 触发get，并收集到当前的watcher对象
+    // let value = selfVue.$data.name // get
     let value = this.ctx.$data[this.exp]
     Dep.target = null
     return value
@@ -123,14 +124,16 @@ function reactive(data, key, value) {
   Object.defineProperty(data, key, {
     configurable: true,
     enumerable: true,
+
     get() {
+      // before get Watcher
       console.log(`收集了一个${key}`)
       // 这里做依赖收集, 后面会做一些更严格的处理，这里先这样写
       if (Dep.target) {
         dep.addSub(
           // 这里有个Watcher，当其监听到当其dep负责的value发生修改时，就会通知视图去更新
           // 这个更新操作是在set中完成的，这里只是注册进去这个Watcher
-          Dep.target
+          Dep.target // watcher
         )
       }
     
@@ -157,3 +160,10 @@ let selfVueInstance = new SelfVue({
 setTimeout(() => {
   selfVueInstance.$data.name = 'dcp'
 }, 2000)
+
+// const vm = new Vue({
+//   // ...
+// })
+
+// // Object.defineProperty
+// vm.name = 'xxx'

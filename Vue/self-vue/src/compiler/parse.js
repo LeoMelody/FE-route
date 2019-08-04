@@ -2,7 +2,7 @@
  * @Author: leo
  * @Date: 2019-07-30 11:51:28
  * @Last Modified by: leo
- * @Last Modified time: 2019-07-31 16:43:55
+ * @Last Modified time: 2019-08-02 17:55:24
  */
 
 // 🌟这里要使用outerHTML来获取当前模板的HTML字符串
@@ -298,7 +298,7 @@ function parseHTML(html, options) {
 
       // 这里也做一个简单的处理，先来提取exp
       const exp = match[1].trim() // 找出表达式名称，比如上面就是 第一次找出的是name
-      tokens.push(`_$(${exp})`) // 放入这个exp
+      tokens.push(`_s(${exp})`) // 放入这个exp _s(name)   
       rawTokens.push({ "@binding": exp })
       // 类似于移动指针的效果
       lastIndex = index + match[0].length

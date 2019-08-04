@@ -13,6 +13,20 @@ export default {
   name: 'home',
   components: {
     HelloWorld
-  }
+  },
+  beforeCreate() {
+    console.log('Home beforeC')
+  },
+
+  created() {
+    console.log('Home created')    
+  },
+
+  beforeMount() {
+    console.log('Home beforeM')    
+  },
+  mounted() {
+    console.log('Home mounted')
+  },
 }
 </script>

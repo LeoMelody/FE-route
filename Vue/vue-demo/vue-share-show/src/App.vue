@@ -29,3 +29,23 @@
   color: #42b983;
 }
 </style>
+
+<script>
+export default {
+  beforeCreate() {
+    console.log('App beforeC')
+  },
+
+  created() {
+    console.log('App created')    
+  },
+
+  beforeMount() {
+    console.log('App beforeM')    
+  },
+  mounted() {
+    console.log('App mounted')
+  },
+}
+</script>
+
