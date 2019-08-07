@@ -2,7 +2,7 @@
  * @Author: leo
  * @Date: 2019-07-30 11:51:28
  * @Last Modified by: leo
- * @Last Modified time: 2019-08-02 17:55:24
+ * @Last Modified time: 2019-08-07 14:47:01
  */
 
 // 🌟这里要使用outerHTML来获取当前模板的HTML字符串
@@ -431,7 +431,7 @@ function parseHTML(html, options) {
   return root
 }
 
-// test 数据
+// // test 数据
 let t = document.querySelector('#app').outerHTML.trim()
 let r = parseHTML(t)
 console.log(r)

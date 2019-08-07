@@ -15,10 +15,15 @@
       <span>{{text}}</span>
     </div>
     <div> 
-      <!-- div static root -->
       <p>123</p>
     </div>
   </div>
   <script src="./parse.js"></script>
+  <script src="../generate/index.js"></script>
+  <script>
+    const createFunc = (code) => new Function(code)
+    const render = generate(r).render
+    const renderFunc = createFunc(render)
+  </script>
 </body>
 </html>
