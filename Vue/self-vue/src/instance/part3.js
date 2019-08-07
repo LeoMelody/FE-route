@@ -2,9 +2,15 @@
  * @Author: leo 
  * @Date: 2019-07-29 11:32:42 
  * @Last Modified by: leo
- * @Last Modified time: 2019-08-02 17:19:43
+ * @Last Modified time: 2019-08-07 11:29:50
  * selfVue 第一部分
  */
+var sharedPropertyDefinition = {
+  enumerable: true,
+  configurable: true,
+  get: () => {},
+  set: () => {}
+};
 
 class Dep {
   constructor() {
@@ -78,7 +84,7 @@ class Watcher {
 class SelfVue {
   constructor(obj = {}) {
     this.$data = obj.data
-    observer(this.$data)
+    observer.call(this, this.$data)
     this.$el = obj.el
     // 获取当前挂载的根结点
     typeof this.$el === 'string' && this.initEle()
@@ -108,6 +114,8 @@ class SelfVue {
 function observer(data) {
   if(!data || typeof data !== 'object') return 
   Object.keys(data).forEach(key => {
+    // 注意，是要在第一层的时候就收集哦
+    proxy(this, '$data', key)
     reactive(data, key, data[key])
   })
 }
@@ -152,14 +160,30 @@ function reactive(data, key, value) {
 
 let selfVueInstance = new SelfVue({
   data: {
-    name: 'wyh'
+    name: 'wyh',
+    age: 18,
+    person: {
+      name: 'xxx'
+    }
   },
   el: '#app'
 })
 
 setTimeout(() => {
-  selfVueInstance.$data.name = 'dcp'
+  // selfVueInstance.$data.name = 'dcp'
+  selfVueInstance.name = 'dcp'
 }, 2000)
+
+
+function proxy (target, sourceKey, key) {
+  sharedPropertyDefinition.get = function proxyGetter () {
+    return this[sourceKey][key]
+  };
+  sharedPropertyDefinition.set = function proxySetter (val) {
+    this[sourceKey][key] = val;
+  };
+  Object.defineProperty(target, key, sharedPropertyDefinition);
+}
 
 // const vm = new Vue({
 //   // ...
