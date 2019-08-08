@@ -2,7 +2,7 @@
  * @Author: leo 
  * @Date: 2019-08-07 10:40:35 
  * @Last Modified by: leo
- * @Last Modified time: 2019-08-07 10:46:20
+ * @Last Modified time: 2019-08-07 19:13:33
  * function生成简易理解
  */
 function _c(str) {console.log(str); return 'hello' + str}

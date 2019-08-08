@@ -2,7 +2,7 @@
  * @Author: leo 
  * @Date: 2019-07-29 11:32:42 
  * @Last Modified by: leo
- * @Last Modified time: 2019-08-07 11:29:50
+ * @Last Modified time: 2019-08-07 19:08:22
  * selfVue 第一部分
  */
 var sharedPropertyDefinition = {
@@ -113,6 +113,7 @@ class SelfVue {
  */
 function observer(data) {
   if(!data || typeof data !== 'object') return 
+  
   Object.keys(data).forEach(key => {
     // 注意，是要在第一层的时候就收集哦
     proxy(this, '$data', key)
@@ -171,9 +172,8 @@ let selfVueInstance = new SelfVue({
 
 setTimeout(() => {
   // selfVueInstance.$data.name = 'dcp'
-  selfVueInstance.name = 'dcp'
+  // selfVueInstance.name = 'dcp'
 }, 2000)
-
 
 function proxy (target, sourceKey, key) {
   sharedPropertyDefinition.get = function proxyGetter () {

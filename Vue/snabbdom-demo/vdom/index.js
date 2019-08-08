@@ -2,7 +2,7 @@
  * @Author: leo 
  * @Date: 2019-08-05 00:48:43 
  * @Last Modified by: leo
- * @Last Modified time: 2019-08-07 15:50:18
+ * @Last Modified time: 2019-08-07 18:12:49
  */
 // init snabbdom
 const snabbdom = window.snabbdom
@@ -42,12 +42,11 @@ btn.addEventListener('click', (e) => {
 
 // create vNode
 function create(data = []) {
-  return h('div#app', {}, data.map(item => {
-    return [
+  return h('div#app', {}, data.map(item => [
       h('div', {}, item.name),
       h('div', {}, item.age)
     ]
-  }).flat(Infinity))
+  ).flat(Infinity))
 }
 
 function update(val) {
@@ -57,5 +56,6 @@ function update(val) {
 }
 
 var vnode = create(dataList)
+console.log(vnode)
 
 patch(wrap, vnode)
