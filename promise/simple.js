@@ -2,7 +2,7 @@
  * @Author: leowangheng@tencent.com 
  * @Date: 2019-08-29 10:14:55 
  * @Last Modified by: leo
- * @Last Modified time: 2019-08-29 10:40:20
+ * @Last Modified time: 2019-08-29 10:41:49
  */
 
 class SimplePromise {
