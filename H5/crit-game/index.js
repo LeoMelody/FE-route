@@ -2,7 +2,7 @@
  * @Author: leo 
  * @Date: 2019-08-21 22:58:23 
  * @Last Modified by: leo
- * @Last Modified time: 2019-08-27 22:08:18
+ * @Last Modified time: 2019-08-27 22:10:25
  */
 
 function main() {}
@@ -20,14 +20,27 @@ class Player {
     this.critDamage = info.critDamage || 1.5
     // 攻击频率 一秒一次
     this.atackFrequency = info.atackFrequency || 1
+    // 是否有狂暴技能
+    this.hasViolent = info.hasViolent || false
+    // 是否有蓄力技能
+    this.hasStorePower = info.hasStorePower || false
   }
 
   /**
-   * 攻击时间
+   * 持续攻击
    */
-  continueAtach(time = 0) {
+  continueAtack(time = 1) {
 
   }
+
+  /**
+   * 进行攻击
+   */
+  atacking() {
+
+  }
+
+
 
   static createPlayer() {
     // 暂时不需要设置单例
