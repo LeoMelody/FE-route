@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .overimg {
+      position: relative;
+      display: block;
+      /* overflow: hidden; */
+      cursor: pointer;
+    }
+
+    .light {
+      position: absolute;
+      left: -180px;
+      top: 0;
+      width: 180px;
+      height: 90px;
+      background-image: -webkit-linear-gradient(0deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
+      transform: skewx(-25deg);
+      animation: move 1s infinite;
+    }
+
+    @keyframes move {
+      0% {
+        left: -180px;
+      }
+
+      100% {
+        left: 180px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <p class="overimg">
+    <a><img src="http://www.nowamagic.net/librarys/images/201402/2014_02_15_01.jpg"></a>
+    <i class="light"></i>
+  </p>
+
+</body>
+
+</html>
