@@ -1,0 +1,13 @@
+{
+  "name": "command",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js hello world",
+    "start2": "NODE_ENV=production node index.js",
+    "start3": "my_val=hello node index.js"
+  },
+  "author": "",
+  "license": "ISC"
+}

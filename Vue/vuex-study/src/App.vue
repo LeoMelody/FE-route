@@ -2,13 +2,18 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/about">About</router-link>|
+      <router-link to="/max/index">max</router-link>
+    </div>
+    <div>
+      <div v-for="item in visit" :key="item.name">{{item.path}}</div>
     </div>
     <router-view/>
   </div>
 </template>
 
 <script>
+import {mapActions, mapState} from "vuex";
 export default {
   name: 'wyh',
   data() {
@@ -17,6 +22,20 @@ export default {
     }
   },
   mounted() {
+    this.setEmptyObjectTest(this.$route) 
+  },
+  computed: {
+    ...mapState(["visit"])
+  },
+  methods: {
+    ...mapActions(["setEmptyObjectTest"])
+  },
+  watch: {
+    $route(val) {
+      this.$nextTick(() => {
+        this.setEmptyObjectTest(val)
+      })
+    }
   },
 }
 </script>

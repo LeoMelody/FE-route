@@ -42,6 +42,18 @@ export default new Router({
       path: '/provide',
       name: 'provide',
       component: Provide
+    },
+    {
+      path: "/max",
+      name: "max",
+      component: Home,
+      children: [
+        {
+          path: "index",
+          name: "maxIndex",
+          component: () => import("./views/Max/index")
+        }
+      ]
     }
   ]
 })
