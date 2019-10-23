@@ -9,7 +9,9 @@ export default new Vuex.Store({
   },
   mutations: {
     SET_EMPTY(state, view) {
-      state.visit.push(view)
+      state.visit.push({
+        ...view
+      })
     }
   },
   actions: {
