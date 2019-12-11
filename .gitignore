@@ -9,3 +9,4 @@ proguard/
 .sass-cache/
 */**/node_modules/
 .vscode
+ignoreFile/
