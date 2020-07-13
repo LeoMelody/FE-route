@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>渐变button</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="l-button">
+    <button>Button</button>
+  </div>
+
+  <script>
+    const buttons = document.querySelectorAll(".l-button")
+    buttons.forEach(b => {
+      b.addEventListener("click", (e) => {
+        const span = document.createElement("span")
+        if (b.lastElementChild.tagName === "span") {
+          b.removeChild(b.lastElementChild)
+        }
+        span.setAttribute("class", "op-span")
+        // currentTarget 保证每次点击的offset都是取外层button的
+        const x = e.x - e.currentTarget.offsetLeft;
+        const y = e.y - e.currentTarget.offsetTop;
+        span.style.top = `${y}px`
+        span.style.left = `${x}px`
+        b.appendChild(span)
+      })
+    })
+  </script>
+</body>
+</html>

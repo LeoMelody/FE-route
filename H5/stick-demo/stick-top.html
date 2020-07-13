@@ -19,12 +19,9 @@
       box-sizing: border-box;
       overflow-y: auto;
       height: 100vh;
-      padding-top: 30px;
     }
 
     .char-header, .char-bottom {
-      height: 30px;
-      line-height: 30px;
       color: #333;
       padding-left: 20px;
       border-bottom: 1px solid #eee;
@@ -43,6 +40,10 @@
       display: block;
     }
 
+    .normal-bottom {
+      position: static;
+    }
+
     .stick-char {
       position: fixed;
       top: 0;
@@ -53,9 +54,7 @@
       display: none;
     }
 
-    .char-item {
-      height: 30px;
-      line-height: 30px;
+    .city-item {
       border-bottom: 1px solid #eee;
       padding-left: 20px;
       box-sizing: border-box;
@@ -70,17 +69,32 @@
 
 <body>
   <div id="app">
-    <div class="container" @scroll="scrollFunc">
-      <div class="char-wrap" v-for="charItem in Object.keys(charData)">
+    <div class="container" @scroll="scrollFunc" :style="{
+      'padding-top': `${cellHeight}px`
+    }">
+      <div class="char-wrap" v-for="(charItem, index) in Object.keys(charData)" :style="{
+        'padding-top': index && currentPosition > charPositionMap[charItem] ? `${cellHeight}px` : 0
+      }">
         <div :class="{
           'char-header': true,
           'stick-char': stickKey === charItem,
           'hide-char': currentPosition > charPositionMap[`${charItem}Last`]
+        }" :style="{
+          'height': `${cellHeight}px`,
+          'line-height': `${cellHeight}px`
         }">{{ charItem }}</div>
-        <div class="char-item" v-for="char in charData[charItem]">{{ char }}</div>
+        <div class="city-item" v-for="char in charData[charItem]" 
+        :style="{
+          'height': `${cellHeight}px`,
+          'line-height': `${cellHeight}px`
+        }">{{ char }}</div>
         <div :class="{
           'char-bottom': true,
-          'show-bottom': currentPosition > charPositionMap[`${charItem}Last`]
+          'show-bottom': currentPosition >= charPositionMap[`${charItem}Last`],
+          'normal-bottom': currentPosition > charPositionMap[charItem]
+        }" :style="{
+          'height': `${cellHeight}px`,
+          'line-height': `${cellHeight}px`
         }">{{charItem}}</div>
       </div>
     </div>
@@ -100,24 +114,24 @@
       J: ["J1", "J2", "J3", "J4", "J5", "J6", "J7", "J8"],
       K: ["K1", "K2", "K3", "K4", "K5", "K6", "K7", "K8"]
     }
-    const CELL_HEIGHT = 30
     const vm = new Vue({
       el: "#app",
       data: {
         charData: data,
         currentItem: "A",
         currentPosition: 0,
-        stickKey: "A"
+        stickKey: "A",
+        cellHeight: 30
       },
       computed: {
         // 位置映射表
         charPositionMap() {
           return Object.keys(this.charData).reduce((p, n, index) => {
-            p[n] = CELL_HEIGHT * (this.charData[n].length) + p.total
+            p[n] = this.cellHeight * (this.charData[n].length + 1) + p.total
             p.total = p[n]
-            p[`${n}Last`] = p.total - CELL_HEIGHT
+            p[`${n}Last`] = p.total - this.cellHeight
             return p
-          }, { total: CELL_HEIGHT})
+          }, { total: 0})
         }
       },
       methods: {
@@ -130,6 +144,7 @@
         checkStick() {
           let last = "A"
           const p = this.currentPosition
+          console.log(p)
           if (p <= this.charPositionMap.ALast) {
             return this.stickKey = "A"
           } 

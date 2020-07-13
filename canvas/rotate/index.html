@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rotate</title>
+</head>
+
+<body>
+  <canvas id="canvas"></canvas>
+  <br />
+  <input type="range" name="角度" id="range" min="0" max="90" step="5" value="0"> <span id="showVal"></span>
+  <br />
+  <button id="btn">点我左上角旋转</button>
+  <button id="btn2">点我中心旋转</button>
+  <script>
+    const btn = document.querySelector("#btn")
+    const btn2 = document.querySelector("#btn2")
+    const range = document.querySelector("#range")
+    const canvas = document.querySelector("#canvas")
+    canvas.width = 500
+    canvas.height = 500
+    const showValue = document.querySelector("#showVal")
+    const setShowVal = () => {
+      showValue.innerHTML = `${rangeValue}deg`
+    }
+    let rangeValue = 0
+    const init = () => {
+      const img = new Image()
+      img.src = "https://t8.baidu.com/it/u=1484500186,1503043093&fm=79&app=86&size=h300&n=0&g=4n&f=jpeg?sec=1594362075&t=b634f260938b044c074a43a588890264"
+      img.onload = () => {
+        context.drawImage(img, 0, 0, canvas.width, canvas.height);
+      }
+
+    }
+    const context = canvas.getContext("2d")
+
+
+    range.addEventListener("change", (e) => {
+      rangeValue = +range.value
+      setShowVal()
+    })
+
+    init();
+    setShowVal();
+
+    function rotateFunc() {
+      context.rotate(Math.PI / 180 * rangeValue);
+      context.clearRect(0, 0, canvas.width, canvas.height);
+      init()
+    }
+
+    function centerRotateFunc() {
+      const centerPoints = {
+        x: canvas.width / 2,
+        y: canvas.height / 2
+      }
+
+      context.translate(centerPoints.x, centerPoints.y);
+      context.rotate(Math.PI / 180 * rangeValue);
+      context.translate(-centerPoints.x, -centerPoints.y);
+      context.clearRect(0, 0, canvas.width, canvas.height);
+      init()
+    }
+
+    btn.addEventListener("click", rotateFunc)
+    btn2.addEventListener("click", centerRotateFunc)
+  </script>
+</body>
+
+</html>
