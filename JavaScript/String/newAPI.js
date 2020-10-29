@@ -2,7 +2,7 @@
  * @Author: leo 
  * @Date: 2018-10-31 09:43:15 
  * @Last Modified by: leo
- * @Last Modified time: 2018-10-31 11:35:41
+ * @Last Modified time: 2020-09-04 11:26:20
  * @description ES6～ 新增的String的API
  */
 

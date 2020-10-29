@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const list = Array.from({length: 1000000})
+    const list2 = []
+    console.time('push')
+    list.forEach(item => {
+      list2.push(1)
+    })
+    console.timeEnd('push')
+    console.time('map')
+    const list3 = list.map(item => 1)
+    console.timeEnd('map')
+
+    console.time('filter')
+    const list4 = list.filter(item => true)
+    console.timeEnd('filter')
+  </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  2
+  <iframe src="./index3.html" frameborder="0" id="iframe"></iframe>
+  <script>
+    const iframe = document.querySelector('#iframe');
+    console.log(iframe.contentDocument.readyState)
+
+    setTimeout(() => {
+      iframe.contentWindow.onload = () => {
+        console.log('3 loaded')
+      }
+    }, 1000)
+  </script>
+</body>
+</html>
